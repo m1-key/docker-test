@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker run
+
+before_install:
+  - docker build -t m1keyy/docker-test -f Dockerfile.dev .
+
+script:
+  - docker run m1keyy/docker npm run test -- --coverage
